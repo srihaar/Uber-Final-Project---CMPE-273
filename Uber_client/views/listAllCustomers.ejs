@@ -1,0 +1,17 @@
+<div class="container" ng-controller="MyController as MyController">
+        <strong>All Customers</strong>
+        <table class="table" ng-show="userList.length>0">
+    
+    <tbody>
+      <tr dir-paginate="profile in userList | itemsPerPage: pageSize" current-page="currentPage">
+      
+        <td><a type="button" class="btn btn-link" ng-click="viewCusProfile(profile.CustomerID)">{{profile.FirstName}}&nbsp;{{profile.LastName}}</a>
+        </td>
+      </tr>
+    <tr><td>
+     <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="/controller/dirPagination.tpl.html"></dir-pagination-controls>
+     </tr></td>
+    
+    </tbody>
+  </table>
+  </div>

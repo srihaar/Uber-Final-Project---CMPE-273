@@ -1,0 +1,33 @@
+<div class="container">
+					<table class="table">
+					<thead><strong>Bill Details</strong></thead>
+					
+					<tr><td>Date:&nbsp&nbsp{{bill[0].Date}}</td></tr>
+					<tr><td>PickUpTime:&nbsp&nbsp{{bill[0].PickupTime}}</td></tr>
+					<tr><td>DropOffTime:&nbsp&nbsp{{bill[0].DropoffTime}}</td></tr>
+					<tr><td>Distance:&nbsp&nbsp{{bill[0].Distance}}&nbspmiles</td></tr>
+					<tr><td>Amount:&nbsp&nbsp{{bill[0].Amount}}$</td></tr>
+					<tr><td>SourceLocation:&nbsp&nbsp{{bill[0].SrcLocation}}</td></tr>
+					<tr><td>DestinationLocation:&nbsp&nbsp{{bill[0].DestLocation}}</td></tr>
+					<tr><td>Customer Name:&nbsp&nbsp{{bill[0].FirstName}}&nbsp{{bill[0].LastName}}</td></tr>
+					<tr><td>CustomerContact:&nbsp&nbsp{{bill[0].PhoneNumber}}</td></tr>
+						<tr><td>CustomerEmail:&nbsp&nbsp{{bill[0].Email}}</td></tr>
+							<tr><td>DriverName:&nbsp&nbsp{{bill[0].dFirstName}}&nbsp{{bill[0].dLastName}}</td></tr>
+									<tr><td>DriverContact:&nbsp&nbsp{{bill[0].dPhoneNumber}}</td></tr>
+	                         <tr><td>DriverEmail:&nbsp&nbsp{{bill[0].dEmail}}   {{test}}</td></tr>					
+					
+					
+					
+					
+					<tr><td>
+					
+					
+					
+					
+					
+				
+					<input type="button" class="btn btn-success" value="Delete Bill" ng-click="deleteBill(bill[0].BillingID)"></tr></td>
+					</table>
+				</div>
+	
+<

@@ -1,0 +1,30 @@
+<div class="container-fluid" style="padding-left:120px">
+<div>
+<br>
+ <center><label style="font-size:20px">Booked Ride</lable></center>
+ <br>
+ <table ng-show="isbooked" class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Driver</th>
+         <th>Pickup</th>
+        <th>Dropoff</th>
+         <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="ride in bookedride">
+      <td>{{ ride.ridedate | date:'yyyy-MM-dd' }} </td>
+        <td>{{ ride.drivername }} </td>
+        <td>{{ ride.pickuplocation }}</td>
+        <td>{{ ride.dropofflocation }} </td>
+        <td><button class="btn btn-danger" type="submit" ng-click="cancelRide(ride.rideid)">Cancel <span class="glyphicon glyphicon-remove"></button>
+      </tr>
+    </tbody>
+  </table>
+ </div> 
+  <div ng-show="!isbooked">
+  <center><label> No Booked rides to display!</label> </center>
+  </div>
+</div>

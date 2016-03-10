@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+  	<title>Uber</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css">
+    <meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>  	
+	  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	
+    <link rel='stylesheet' href='/stylesheets/first_page.css'>
+
+    <style>
+		.carousel-inner > .item > img,
+		.carousel-inner > .item > a > img {
+		    width: 100%;
+		    height:667px;
+		    margin: auto;
+		}
+  	</style>
+
+  </head>
+  <body class="dark light-foot">
+  	<div class="web global-container js-global-container">
+    	<section class="site-wrapper js-site-wrapper" style="right: 0px;">
+	        <div class="global-nav-overlay js-global-nav-overlay"></div>
+	        <div class="head-fade" style="display: none;"></div>
+
+	        <header class="global-header js-global-header" style="position: fixed; top: 80px; border-bottom-width: 0px;">
+	          
+
+	            <section class="top-cta js-hidden js-top-cta" style="left: 0px; margin-top: 0px; position: fixed; top: 0px;">
+	              <article class="driver-promo-cta">
+	                <div class="yui3-g">
+	                  <div class="yui3-u-1-4 car-img-wrapper">
+	                    <div class="car-lineup-bg"></div>
+	                  </div>
+	                  <div class="yui3-u-1-2 driver-value-prop">
+	                    <h5>Want to drive with Uber?</h5>
+	                  </div>
+	                  <div class="yui3-u-1-4 btn-wrapper">
+	                    <a href="/driverSignupPage" class="btn ga-click-track"
+	                      data-ga="top-cta.driver-sign-up-button-click">
+	                      Become a driver
+	                    </a>
+	                  </div>
+	                </div>
+	              </article>
+	            </section>
+
+
+
+		        <p class="pull-right actions res-s-hidden">
+		            
+		            <a href="/loginPage" class="ga-click-track js-login-link"
+		               data-ga="global-header.login-button-click" data-mp="landing_page.log_in_click">
+		              Log In
+		            </a>
+		            		            
+		            <a href="/riderSignupPage" class="btn ga-click-track js-signup-or-dl-cta js-signup-btn"
+		               data-ga="global-header.sign-up-button-click" style="border: 2px solid #1fbad6; background-color: #070716; border-radius: 2px;">
+		              Sign Up
+		            </a>
+		            
+		        </p>     
+          
+		        <div class="yui3-u-1-3 center block-center" style="width: 33.33333%;">
+		        	<a href="/" class="uber-logo ir ga-click-track"
+		             data-ga="global-header.logo-click">Uber</a>
+		        </div>
+        	</header>
+
+
+        	<script>
+  				heroPhotos = [{"cta":{"content":"Sign Up","link":"//get.uber.com"},"headline":"Your Ride, On Demand","heroType":"left","image":"slide1","subheadline":"Transportation in minutes with the Uber app"},{"cta":{"content":"Sign Up","link":"//get.uber.com/drive/"},"headline":"Drive with Uber","heroType":"left","image":"slide2","subheadline":"Your car. Your schedule. Your move."},{"cta":{"content":"Learn More","link":"//www.uber.com/our-women-partner-program"},"headline":"Her turn to earn","heroType":"left","image":"slide3","subheadline":"Creating 1,000,000 jobs for women by 2020"}]
+			</script>
+
+			<section class="hero react-hero" style="margin-top: 80px;">
+
+				<div class="container" style="width:100%">
+				  <br>
+				  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+				    <!-- Indicators -->
+				    <ol class="carousel-indicators">
+				      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				      <li data-target="#myCarousel" data-slide-to="1"></li>
+				      <li data-target="#myCarousel" data-slide-to="2"></li>
+				    </ol>
+
+				    <!-- Wrapper for slides -->
+				    <div class="carousel-inner" role="listbox">
+
+				      <div class="item active">
+				        <img src="https://d1a3f4spazzrp4.cloudfront.net/web-fresh/home/heros/modern/hero45kf34_1400.jpg" alt="Chania" style="height:667px; width:110%;">
+				        <div class="carousel-caption">
+				          <h1 style="font-size: 44px;">Your Ride, On Demand</h1>
+				          <h3 style="font-size: 16px;">Transportation in minutes with the Uber app</h3>
+				          <a class="content__cta btn btn-lg btn--primary primary-font primary-font--semibold" href="/riderSignupPage" style="border: 2px solid #1fbad6; background-color: #1fbad6; border-radius: 2px; color: #fff; width:25%; margin-bottom: 20px; margin-top: 20px;">Sign Up</a>
+				        </div>
+				      </div>
+
+				      <div class="item ">
+				        <img src="https://d1a3f4spazzrp4.cloudfront.net/web-fresh/home/heros/modern/hero02a_1400.jpg" alt="Chania" style="height:667px; width:110%;">
+				        <div class="carousel-caption">
+				          <h1 style="font-size: 44px;">Drive with Uber</h1>
+				          <h3 style="font-size: 16px;">Your car. Your schedule. Your move</h3>
+				          <a class="content__cta btn btn-lg btn--primary primary-font primary-font--semibold" href="/driverSignupPage" style="border: 2px solid #1fbad6; background-color: #1fbad6; border-radius: 2px; color: #fff; width:25%; margin-bottom: 20px; margin-top: 20px;">Sign Up</a>
+				        </div>
+				      </div>
+				    
+				      <div class="item ">
+				        <img src="https://d1a3f4spazzrp4.cloudfront.net/web-fresh/home/heros/modern/heroUN_1400.jpg" alt="Flower" style="height:667px; width:110%;">
+				        <div class="carousel-caption">
+				          <h1 style="font-size: 44px;">Her turn to earn</h1>
+				          <p style="font-size: 16px;">Creating 1,000,000 jobs for women by 2020</p>
+				          <a class="content__cta btn btn-lg btn--primary primary-font primary-font--semibold" href="//www.uber.com/our-women-partner-program" style="border: 2px solid #1fbad6; background-color: #1fbad6; border-radius: 2px; color: #fff; width:25%; margin-bottom: 20px; margin-top: 20px;">Learn More</a>
+				        </div>
+				      </div>
+				  
+				    </div>
+
+				    <!-- Left and right controls -->
+				    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+				      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				      <span class="sr-only">Previous</span>
+				    </a>
+				    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+				      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				      <span class="sr-only">Next</span>
+				    </a>
+				  </div>
+				</div>
+			</section>
+		</section>
+	</div>
+</body>    
+</html>

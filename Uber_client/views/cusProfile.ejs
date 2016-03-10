@@ -1,0 +1,20 @@
+<div class="container">
+					<table class="table">
+					<thead><strong>Customer Details</strong></thead>
+					<tr><td>
+					
+					Firstname:&nbsp&nbsp{{userProfile[0].FirstName}}</td></tr>
+					<tr><td>Lastname:&nbsp&nbsp{{userProfile[0].LastName}}</td></tr>
+					<tr><td>Email:&nbsp&nbsp{{userProfile[0].Email}}</td></tr>
+					<tr><td>Mobile:&nbsp&nbsp{{userProfile[0].PhoneNumber}}</td></tr>
+					<tr><td>Address:&nbsp&nbsp{{userProfile[0].Address}}</td></tr>
+					<tr><td>City:&nbsp&nbsp{{userProfile[0].City}}</td></tr>
+					<tr><td>State:&nbsp&nbsp{{userProfile[0].State}}</td></tr>
+					
+					<tr><td>
+					<input type="button" class="btn btn-success" value="Delete Customer" ng-click="deleteCus(userProfile[0].CustomerID)"></tr></td>
+					<tr><td>
+					<a ng-click="back()">Goto Search Page</a></tr></td>
+					</table>
+				</div>
+	

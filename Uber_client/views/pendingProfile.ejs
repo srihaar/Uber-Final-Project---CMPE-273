@@ -1,0 +1,23 @@
+<div class="col-sm-6">
+					<table class="table">
+					<thead><strong>Driver Details</strong></thead>
+					<tr><td>
+					
+					Firstname:</td><td>{{pendingProfile[0].FirstName}}</td></tr>
+					<tr><td>Lastname:</td><td>{{pendingProfile[0].LastName}}</td></tr>
+					<tr><td>Email:</td><td>{{pendingProfile[0].Email}}</td></tr>
+					<tr><td>Mobile:</td><td>{{pendingProfile[0].PhoneNumber}}</td></tr>
+					<tr><td>Address:</td><td>{{pendingProfile[0].Address}}</td></tr>
+					<tr><td>City:</td><td>{{pendingProfile[0].City}}</td></tr>
+					<tr><td>State:</td><td>{{pendingProfile[0].State}}</td></tr>
+					
+					
+					<tr><td>
+					<button class="btn btn-success" ng-show="pendingProfile[0].isActive==2" ng-click="approveRequest(pendingProfile[0].DriverID)">Approve</button></td>
+					<td><button class="btn btn-danger" ng-show="pendingProfile[0].isActive==2" ng-click="rejectRequest(pendingProfile[0].DriverID)">Reject</button></td>
+					<td><button class="btn btn-success" ng-show="pendingProfile[0].isActive==1" ng-disabled="true">Approved</button></td>
+					<td><button class="btn btn-danger" ng-show="pendingProfile[0].isActive==0" ng-disabled="true">Rejected</button></td></tr>
+					<tr><td><a type="button" ng-click="back()"></a></tr></td>
+				</div>
+	
+<

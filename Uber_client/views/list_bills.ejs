@@ -1,0 +1,91 @@
+
+
+	<div style="padding-left:120px">
+	<div class="container">
+
+		<div ng-repeat="trip in tripDetails.results" >
+	
+		
+				<div class="container">
+				
+				  <div class="row">
+					<div>
+						 <div class="col col-md-8">
+						  	
+						 	<div class="panel panel-default">
+						 	
+								  <div class="panel-heading">Ride Details</div>
+								  
+									  	<div class="panel-body">
+									 
+									    	<div class="table-responsive">          
+												<table class="table">  
+												  <thead>
+												      <tr>
+												        <th>Pickup</th>
+												        <th>Driver</th>
+												        <th>Fare</th>
+												        <th>Car</th>
+												        <th>City</th>
+												      </tr>
+												    </thead>
+												    <tbody>
+												      <tr>
+												        <td>{{trip.Date | date:'yyyy-MM-dd'}}</td>
+												        <td>{{trip.driverName}}</td>
+												        <td>{{trip.amount}}</td>
+												        <td>{{trip.carType}}</td>
+												        <td>{{trip.SrcLocation}}</td>
+												      </tr>
+												    </tbody>
+												  </table>
+											  </div>
+											<div class = "well">
+											  <div class="container">
+											  	
+											  	<div class="row">
+											  			<div class="col col-md-4">
+											  				<p>Price: {{trip.amount | currency}}</p></br>
+											  				<p>Date : {{trip.Date | date:'yyyy-MM-dd'}}</p></br>
+											  				<p> Pickup Time : {{trip.pickupTime | date: 'HH:MM'}}</p></br>
+											  				<p>Source:{{trip.SrcLocation}}</p></br>
+											  				<p> Drop off Time: {{trip.dropoffTime | date: 'HH:MM'}}</p></br>
+											  				<p>Destination:{{trip.DestLocation}}</p></br>
+											  				
+											  			</div>
+											  			
+											  			<div class = "col col-md-4" ng-init="'rating=1'">
+											  				<p>Rating</p></br>
+															
+															<div ng-show="'trip.isRated == 0'">
+																<button type="button" class="btn btn-success" ng-click="viewBill(trip)">View Bill</button>
+															</div>
+											  			</div>
+											  	</div>
+											  </div>
+									 	 </div>
+									 	</div> 
+									</div>
+									
+								</div>
+						 </div>
+				   </div>
+				</div>		    
+		
+		     
+	    </div>
+	    
+	</div>
+	
+	
+	<script type="text/javascript">
+ 
+		$.fn.stars = function() {
+			return $(this).each(function() {
+				$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+			});
+		}
+		$(function() {
+    		$('span.stars').stars();
+    	});
+	</script>

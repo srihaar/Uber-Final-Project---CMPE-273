@@ -1,0 +1,42 @@
+
+
+<div class="container-fluid" style="padding-left:120px">
+<br>
+<center><label style="font-size:20px">My Profile</lable></center>
+<br>
+<div class="col-sm-3" style="margin-left:50px;">                      
+<table class="table">
+<thead><strong>Personal Info</strong></thead>
+<tr><td>Firstname:&nbsp&nbsp{{user.FirstName}}</td></tr>
+<tr><td>Lastname:&nbsp&nbsp{{user.LastName}}</td></tr>
+<tr><td>Email:&nbsp&nbsp{{user.Email}}</td></tr>
+<tr><td>Mobile:&nbsp&nbsp{{user.PhoneNumber}}</td></tr>
+<tr><td>Address:&nbsp&nbsp{{user.Address}}</td></tr>
+<tr><td>City:&nbsp&nbsp{{user.City}}</td></tr>
+<tr><td>State:&nbsp&nbsp{{user.State}}</td></tr>
+<tr><td>Average Rating:&nbsp&nbsp{{user.rating}}</td></tr>
+<tr><td></td></tr>
+<!--<tr><td><input type="button" class="btn btn-success" value="Delete Driver" ng-click="deleteDri(user.DriverID)">-->
+</table>
+</div>	
+   <div class="col-sm-8">
+                 <div class="col-sm-1" style="margin-left:20px;">
+           <p></p>
+         </div>          
+
+         <div style="margin-left:100px;">
+           	<table class="table">
+<thead><strong>My Video</strong></thead>
+<tr><td>
+               <video id="driverVideo" width="350" height="300" controls>
+          <source id="videoSrc" src="" type="video/mp4">            
+        </video></td></tr>
+              
+          <tr><td><form action="/uploadVideo" method="post" enctype="multipart/form-data">        
+             <span class="btn btn-sm btn-default btn-file"><span class="glyphicon glyphicon-upload"></span>&nbsp;Upload Video <input type="file" name="file"></span>
+             <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok-circle"></span></button>
+             <span class="hint">Supported files: mp4</span>
+          </form> </td></tr> 
+           
+         </div>                      
+           </div>

@@ -1,0 +1,117 @@
+  <div class="container">    
+        
+        <nav class="navbar navbar-blue navbar-static-top" role="navigation">
+               
+               <ul class="nav navbar-nav">
+                <li><h4 style="margin-left:40px;margin-top:20px;">Search for Bills&nbsp&nbsp&nbsp</h4></li>               
+                <li>
+                <form name="myForm" align="center">
+                <div class="input-group input-group-sm" style="max-width:250px;margin-top:16px;">
+                      <div ng-show="nameSearch">    <input type="text" class="form-control" placeholder="Name" name="searchTerm" ng-model="searchTerm" id="searchTerm" 
+                          ng-pattern="/^[a-zA-Z\s]+$/" maxlength="15" required></div>
+                       <div ng-show="dateSearch">    <input type="text" class="form-control" placeholder=" Date(mm-dd-yyyy)" name="searchTerm1" ng-model="searchTerm1" id="searchTerm1" 
+                          ng-pattern="/^([1-12])-([1-12])-[0-9]{4}$/" maxlength="15" required></div>
+                          <div ng-show="nameSearch">
+                          <div class="input-group-btn">
+                            <button class="btn btn-success" ng-click="search()" ng-disabled="myForm.searchTerm.$pristine||myForm.searchTerm.$invalid && myForm.searchTerm.$dirty">Search</button>
+                          </div>
+                          </div>
+                          
+                          <div ng-show="dateSearch">
+                          <div class="input-group-btn">
+                            <button class="btn btn-success" ng-click="search1()" ng-disabled="myForm.searchTerm1.$pristine||myForm.searchTerm1.$invalid && myForm.searchTerm1.$dirty">Search</button>
+                          </div>
+                          </div>
+                           </div>
+                        
+                       <div>
+                       <span style="color:red" ng-show="myForm.searchTerm1.$dirty && myForm.searchTerm1.$invalid && dateSearch">
+             <span ng-show="myForm.searchTerm1.$error.required">SearchTerm is required.</span>
+               <span ng-show="myForm.searchTerm1.$error.pattern">Invalid DateFormat.</span>
+               
+              
+              </span> 
+                       
+                       
+                       
+                       </div>
+                       
+                        <div>
+                       <span style="color:red" ng-show="myForm.searchTerm.$dirty && myForm.searchTerm.$invalid &&nameSearch">
+              <span ng-show="myForm.searchTerm.$error.required">SearchTerm is required.</span>
+        
+               <span ng-show="myForm.searchTerm.$error.pattern">Enter Only Characters</span>
+              
+              </span> 
+                       
+                   </div>
+                        
+                    <div>
+        <label>Search By:&nbsp&nbsp<label>
+        <label>
+  
+    <input type="radio"  name="search" value="name" ng-model="search" ng-checked="true" ng-change="name()" required>
+    CustomerName
+  </label>
+  <label>
+    <input type="radio" name="search" value="date" ng-model="search" ng-change="date()" required>
+    Date
+  </label>
+  </div>
+  
+   
+              
+                        
+                       
+                        </form>
+                        
+                        </li>
+                        
+                        
+                        
+                </ul>
+                
+        </nav>
+     
+     
+       
+     
+     
+     <div class="container" ng-controller="MyController as MyController">
+        <strong ng-show="(bills.length==0)">No Bills Found</strong>
+        <div ng-show="bills.length>0">
+              <strong>Matching Bills</strong>
+        <table class="table" >
+         <thead> 
+            <tr><td>CUSTOMER NAME</td>
+                <td>SOURCE</td>
+                <td>DESTINATION</td>
+                <td></td>
+               
+    <tbody>
+
+      
+      <tr dir-paginate="bill in bills | itemsPerPage: pageSize" current-page="currentPage">
+      
+        <td>{{bill.FirstName}}&nbsp&nbsp{{bill.LastName}}</td>
+        <td>{{bill.SrcLocation}}</td>
+        <td>{{bill.DestLocation}}</td>
+        <td><a type="button" class="btn btn-link" ng-click="viewBill(bill.BillingID)">ViewBill</a>
+        </td>
+      </tr>
+    <tr><td>
+     <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="/controller/dirPagination.tpl.html"></dir-pagination-controls>
+     </tr></td>
+    </tbody>
+  </table>
+  </div>
+  </div>
+  
+  
+  
+
+      
+
+
+
+  </div>

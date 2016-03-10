@@ -1,0 +1,146 @@
+<div style="padding-left:120px" >
+
+
+
+	<ng-map id= "test" default-style="true" center="{{address}}" zoom="10"  on-click="addMarker()" style=" width: 900px ; height : 900px ; display : block;">
+ 	  <marker position = "{{curr.lat}},{{curr.lng}}"
+ 	    centered = "true" id="test"  ></marker>
+ 	    
+      <marker id="foo" ng-repeat="driver in nearByDrivers"
+				position="{{ driver.latitude}},{{ driver.longitude}}" 
+				on-click="populateInfoWindow(driver)" 
+				icon = "../images/carSmall.png"> 
+	  </marker>
+	  
+      <info-window id="bar" position="{{driver2.latitude}}, {{driver2.longitude}}" >
+       <div  class="container"  style=" width: 200px ; height : 200px ; display : block;"  >
+      	
+      	<div ng-show="driver2.rideBooked != 'Your Ride is booked!'">
+      	<div class="row">
+      	    <div class="col col-sm-10">
+      	    <div class="row">
+      		<h3><b>Driver Details</b></h3>
+      		</div>
+      		<div class="row">
+      	   <p> Name : {{driver2.firstName}}</p>
+      	     </div>
+      	    <div class="row"> 
+      	   <p> Car: {{driver2.carType}}</p></div> 
+         <div ng-show = " avgRating > 0">
+			
+  				<div class="row" ng-show = "avgRating == 0">
+  					Rating :<p style ="font-size :150%;color : #DAA520"> &#9734;&#9734;&#9734;&#9734;&#9734;</p>
+  				</div>
+  				<div class="row" ng-show = "avgRating == 1">
+  					Rating :<p style ="font-size :150%;color : #DAA520"> &#9733;&#9734;&#9734;&#9734;&#9734;</p>
+  				</div>
+  				<div class="row" ng-show = "avgRating == 2">
+  					Rating :<p style ="font-size :150%;color : #DAA520"> &#9733;&#9733;&#9734;&#9734;&#9734;</p>
+  				</div>
+  				<div class="row" ng-show = "avgRating == 3">
+  					Rating :<p style ="font-size :150%;color : #DAA520"> &#9733;&#9733;&#9733;&#9734;&#9734;</p>
+  				</div>
+  				<div class="row" ng-show = "avgRating == 4">
+  					Rating :<p style ="font-size :150%;color : #DAA520"> &#9733;&#9733;&#9733;&#9733;&#9734;</p>
+  				</div>
+  				<div class="row" ng-show = "avgRating == 5">
+  					Rating :<p style ="font-size :150%;color : #DAA520"> &#9733;&#9733;&#9733;&#9733;&#9733;</p>
+  				</div>
+			</div>
+      	<input type="button" class= "btn btn-success btn-sm" ng-click="bookRide(driver2)" value="book ride">
+      	</div>
+      	</div>
+      	</div>
+      	
+      	<div ng-show="driver2.rideBooked == 'Your Ride is booked!'">
+      	  <center><b>{{driver2.rideBooked}}</b><center>
+      	</div>
+      	
+      </div>
+      </info-window>
+     
+      
+       <div>
+      	   <directions
+      	              draggable="true"
+      	              travel-mode="DRIVING"
+      	              panel="p1"
+      	              origin="{{source_display}}"
+      	              destination="{{destination_display}}">
+      	   </directions> 
+      </div>
+    </ng-map>
+    <div class="container">
+    	<div class="row">
+		    <div class="col col-md-9">
+		     <div class="btn-group btn-group-justified" role="group">
+       <div class="btn-group" role="group">
+         <input places-auto-complete  class="form-control" ng-model="source"  placeholder = "enter pickup location" />
+         </div>
+         <div class="btn-group" role="group">
+         <input places-auto-complete class="form-control" ng-model ="destination" placeholder = "enter dropoff location" />
+         </div>
+         <div class="btn-group" role="group">
+         <button class="btn btn-success" ng-click="setPickup()">Go</button></div>
+         </div>
+       <!--mycode-->
+       <br/>
+			    <div class="btn-group btn-group-justified" role="group" aria-label="..." ng-init="Car = 'SUV'; test ='false'">
+				  <div class="btn-group" role="group">
+				    <button type="button" class="btn btn-default" ng-click="Car='SUV'" data-toggle="collapse" data-target="#myModalSUV">SUV</button>
+				  </div>
+				  <div class="btn-group" role="group">
+				    <button type="button" class="btn btn-default" ng-click="Car='Sedan'"  data-toggle="collapse" data-target="#myModalSUV">Sedan</button>
+				  </div>
+				  <div class="btn-group" role="group">
+				    <button type="button" class="btn btn-default" ng-click="Car='HatchBack'" data-toggle="collapse" data-target="#myModalSUV">HatchBack</button>
+				  </div>
+				</div>
+			</div>
+		</div>				
+	</div>
+	
+  <!-- Modal SUV-->
+  <div class="collapse fade" id="myModalSUV" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{Car}}</h4>
+        </div>
+        <div class="modal-body">
+        	
+	         	<input places-auto-complete class="form-control" ng-model="source"  placeholder = "Source" /> </br>
+				<input places-auto-complete class="form-control" ng-model ="destination" placeholder = "Destination" />
+			
+        </div>
+        <div class="modal-footer" >
+          
+          <div ng-init="ride='Ride Estimate'">
+          		<span ng-show="showEstimate" ><p class="text-success"> Ride estimate is {{rideEstimate - 2 | currency }} - {{ rideEstimate + 2 | currency}}</p> </span>
+          		<button type="button" class="btn btn-success" ng-click = "getLocation(source, destination); "  >{{ride}}</button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>  
+  
+  
+ </div>
+     
+</div>
+
+
+	<script type="text/javascript">
+ 
+		$.fn.stars = function() {
+			return $(this).each(function() {
+				$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+			});
+		}
+		$(function() {
+    		$('span.stars').stars();
+    	});
+	</script>

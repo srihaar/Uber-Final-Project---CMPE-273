@@ -1,0 +1,30 @@
+<div class="container-fluid" style="padding-left:120px">
+<br>
+ <center><label style="font-size:20px">My Trips</lable></center>
+ <br>
+ <table ng-show="isdriverride" class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Customer</th>
+         <th>Pickup</th>
+        <th>Dropoff</th>
+         <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  ng-repeat="ride in driverrides">
+      <td>{{ ride.ridedate | date:'yyyy-MM-dd' }} </td>
+        <td>{{ ride.ridername }} </td>
+        <td>{{ ride.pickuplocation }}</td>
+        <td>{{ ride.dropofflocation }} </td>
+        <td><button type="submit" ng-click="removeride(ride.rideid,'d')"><span class="glyphicon glyphicon-remove"</button>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+ <div ng-show="!isdriverride">
+  <center><label> No Rides to display </label> </center>
+  </div>
+</div>

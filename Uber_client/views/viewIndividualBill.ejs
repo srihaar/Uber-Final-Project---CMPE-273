@@ -1,0 +1,171 @@
+<div style="padding-left:120px">
+	
+	<!-- <link rel='stylesheet' href='/stylesheets/uberhome.css' /> -->
+	<div class="container">
+
+	
+		
+				<div class="container">
+				
+				  <div class="row">
+					<div>
+
+		
+				       <div class="col col-md-3" >
+						   <ng-map  default-style="true" center="{{tripIndividual.pickupLocation}}" zoom="14"  style="width: 300px; height : 300px ; display: block;" >
+						      	   <directions
+						      	              draggable="true"
+						      	              travel-mode="DRIVING"
+						      	              origin="{{tripIndividual.pickupLocation}}"
+						      	              destination="{{tripIndividual.dropoffLocation}}">
+						      	   </directions>
+						      	   
+							  	
+						    </ng-map></br>
+						    
+						     	<div class="container">
+											<div class="rows" ng-show="initialReview">
+												
+												<div class="col-sm-3" ng-show = "tripIndividual.isRated == 0">
+													<span class="starRating">
+												        <input id="rating5" type="radio" name="rating" value="5" ng-click = "rateDriver(5)">
+												        <label for="rating5">5</label>
+												        <input id="rating4" type="radio" name="rating" value="4" ng-click = "rateDriver(4)">
+												        <label for="rating4">4</label>
+												        <input id="rating3" type="radio" name="rating" value="3" ng-click = "rateDriver(3)">
+												        <label for="rating3">3</label>
+												        <input id="rating2" type="radio" name="rating" value="2" ng-click = "rateDriver(2)">
+												        <label for="rating2">2</label>
+												        <input id="rating1" type="radio" name="rating" value="1" ng-click = "rateDriver(1)">
+												        <label for="rating1">1</label>
+												      </span>
+													<div class="form-group">
+														  <label for="comment">Comment:</label>
+														  <textarea class="form-control" ng-model="review" rows="5" id="comment"></textarea>
+														  <button type="button" class="btn btn-primary" ng-click="submitReview()">Submit</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div> 
+						 </div>
+						 <div class="col col-md-6">
+						  	
+						 	<div class="panel panel-default">
+						 	
+								  <div class="panel-heading">Ride Details</div>
+								  
+									  	<div class="panel-body">
+									 
+									    	<div class="table-responsive">          
+												<table class="table">  
+												  <thead>
+												      <tr>
+												        <th>Pickup</th>
+												        <th>Driver</th>
+												        <th>Fare</th>
+												        <th>Car</th>
+												        <th>City</th>
+												      </tr>
+												    </thead>
+												    <tbody>
+												      <tr>
+												        <td>{{tripIndividual.Date | date:'yyyy-MM-dd'}}</td>
+												        <td>{{tripIndividual.driverName}}</td>
+												        <td>{{tripIndividual.amount}}</td>
+												        <td>{{tripIndividual.carType}}</td>
+												        <td>{{tripIndividual.pickupLocation}}</td>
+												      </tr>
+												    </tbody>
+												  </table>
+											  </div>
+											<div class = "well">
+											  <div class="container">
+											  	
+											  	<div class="row">
+											  			<div class="col col-md-3">
+											  				<p>Price: {{tripIndividual.amount | currency}}</p></br>
+											  				<p>Date : {{tripIndividual.Date | date:'yyyy-MM-dd'}}</p></br>
+											  				<p> Pickup Time : {{tripIndividual.pickupTime | date: 'HH:MM'}}</p></br>
+											  				<p>Source:{{tripIndividual.pickupLocation}}</p></br>
+											  				<p> Drop off Time: {{tripIndividual.dropoffTime | date: 'HH:MM'}}</p></br>
+											  				<p>Destination:{{tripIndividual.dropoffLocation}}</p></br>
+											  				
+											  			</div>
+											  			
+											  			<div class = "col col-md-3" >
+															<div ng-show = "tripIndividual.isRated == 1">
+												  				<p>Rating</p></br>
+													  				<div ng-show = "tripIndividual.rating == 0">
+													  					<p style ="font-size :150%">&#9734;&#9734;&#9734;&#9734;&#9734;</p>
+													  				</div>
+													  				<div ng-show = "tripIndividual.rating == 1">
+													  					<p style ="font-size :150%">&#9733;&#9734;&#9734;&#9734;&#9734;</p>
+													  				</div>
+													  				<div ng-show = "tripIndividual.rating == 2">
+													  					<p style ="font-size :150%">&#9733;&#9733;&#9734;&#9734;&#9734;</p>
+													  				</div>
+													  				<div ng-show = "tripIndividual.rating == 3">
+													  					<p style ="font-size :150%">&#9733;&#9733;&#9733;&#9734;&#9734;</p>
+													  				</div>
+													  				<div ng-show = "tripIndividual.rating == 4">
+													  					<p style ="font-size :150%">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+													  				</div>
+													  				<div ng-show = "tripIndividual.rating == 5">
+													  					<p style ="font-size :150%">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+													  				</div>
+												  				Review : {{review}}
+											  				</div>
+															<div ng-show = "tripIndividual.isRated == 0">
+												  					Rating :
+												  					<div ng-show = "driverRating == 0">
+													  					<p>&#9734;&#9734;&#9734;&#9734;&#9734;</p>
+													  				</div>
+													  				<div ng-show = "driverRating == 1">
+													  					<p style ="font-size :150%">&#9733;&#9734;&#9734;&#9734;&#9734;</p>
+													  				</div>
+													  				<div ng-show = "driverRating == 2">
+													  					<p style ="font-size :150%">&#9733;&#9733;&#9734;&#9734;&#9734;</p>
+													  				</div>
+													  				<div ng-show = "driverRating == 3">
+													  					<p style ="font-size :150%">&#9733;&#9733;&#9733;&#9734;&#9734;</p>
+													  				</div>
+													  				<div ng-show = "driverRating == 4">
+													  					<p style ="font-size :150%">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+													  				</div>
+													  				<div ng-show = "driverRating == 5">
+													  					<p style ="font-size :150%">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+													  				</div>
+												  					Customer Review:</br>
+												  					{{review}}</br>	
+												  			</div>		
+												  				
+											  				</div>
+											  			</div>
+											  	</div>
+											  </div>
+									 	 </div>
+									 	</div> 
+									</div>
+									
+								</div>
+						 </div>
+				   </div>
+				</div>		    
+		
+		     
+	    </div>
+	    
+	</div>
+
+	<script type="text/javascript">
+ 
+		$.fn.stars = function() {
+			return $(this).each(function() {
+				$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+			});
+		}
+		$(function() {
+    $('span.stars').stars();
+});
+	</script>

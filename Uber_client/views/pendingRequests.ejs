@@ -1,0 +1,22 @@
+ <div class="container"  ng-controller="MyController as MyController">
+        <strong align="center" ng-show="(requestList.length==0)">No Pending Requests</strong>
+        
+     <table class="table" align="center" ng-show="requestList.length>0">
+    <tbody>
+      <tr><td><strong>Pending Requests</strong></td></tr>
+      
+      <tr dir-paginate="request in requestList | itemsPerPage: pageSize" current-page="currentPage">
+      
+        <td><a type="button" ng-click="viewPendingProfile(request.DriverID)">{{request.FirstName}}&nbsp&nbsp&nbsp{{request.LastName}}</a></td>
+        <td ng-hide="request.hideApprove"><button ng-click='approveRequest(request.DriverID,$index)' class="btn btn-success" ng-disabled='request.approve' >Approve<span ng-if="request.approve"> Success</span>
+        </button></td>
+        
+        <td ng-hide="request.hideReject"><button ng-click='rejectRequest(request.DriverID,$index)' class="btn btn-danger" ng-disabled='request.reject' >Reject<span ng-if="request.reject"> Success</span>
+        </button></td>
+      </tr>
+    <tr><td>
+     <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="/controller/dirPagination.tpl.html"></dir-pagination-controls>
+     </tr></td>
+    </tbody>
+  </table>
+  </div>

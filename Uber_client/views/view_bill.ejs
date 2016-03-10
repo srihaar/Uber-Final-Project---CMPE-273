@@ -1,0 +1,36 @@
+<div style="padding-left:120px">
+<div class="page-header">
+	 <h1> Receipt </h1> 
+	</div>
+	<div class="well">
+		<p id="date">{{date | date:'medium'}} </p></br></br>
+		<p> Price : {{totalPrice | currency}} </p> </br>
+		
+      <span class="glyphicon glyphicon-user"></span>{{driverName}}</br>
+      <span class="starRating">
+        <input id="rating5" type="radio" name="rating" value="5" ng-click = "rateDriver(5)">
+        <label for="rating5">5</label>
+        <input id="rating4" type="radio" name="rating" value="4" ng-click = "rateDriver(4)">
+        <label for="rating4">4</label>
+        <input id="rating3" type="radio" name="rating" value="3" ng-click = "rateDriver(3)">
+        <label for="rating3">3</label>
+        <input id="rating2" type="radio" name="rating" value="2" ng-click = "rateDriver(2)">
+        <label for="rating2">2</label>
+        <input id="rating1" type="radio" name="rating" value="1" ng-click = "rateDriver(1)">
+        <label for="rating1">1</label>
+      </span>
+		
+		
+	</div>
+	<div class="container">
+		<div class="rows">
+			<div class="col-sm-4">
+				<div class="form-group">
+					  <label for="comment">Comment:</label>
+					  <textarea class="form-control" ng-model="review" rows="5" id="comment"></textarea>
+					  <button type="button" class="btn btn-primary" ng-click="submitReview()">Submit</button>
+				</div>
+			</div>
+		</div>
+	
+	</div>

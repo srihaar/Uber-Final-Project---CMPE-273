@@ -1,0 +1,103 @@
+  <div class="container">    
+        
+        <nav class="navbar navbar-blue navbar-static-top" role="navigation">
+               <ul class="nav navbar-nav">
+                <li><h4 style="margin-left:40px;margin-top:20px;">Search for Customers or Drivers</h4></li>
+                <li><a href="#"></a></li>                
+                <li>
+                <form name="myForm">
+                <div class="input-group input-group-sm" style="max-width:250px;margin-top:16px;">
+                          <input type="text" class="form-control" placeholder="Search" name="searchTerm" ng-model="searchTerm" id="searchTerm" ng-pattern="/^[a-zA-Z\s]+$/" maxlength="15"required>
+                          <div class="input-group-btn">
+                            <button class="btn btn-default"  ng-click="search()" ng-disabled="myForm.searchTerm.$pristine||myForm.searchTerm.$invalid && myForm.searchTerm.$dirty"><span class="glyphicon glyphicon-search"></span></button>
+                          </div>
+                        </div>
+                        <div>
+                       <span style="color:red" ng-show="myForm.searchTerm.$dirty && myForm.searchTerm.$invalid">
+              <span ng-show="myForm.searchTerm.$error.required">SearchTerm is required.</span>
+        
+               <span ng-show="myForm.searchTerm.$error.pattern">Enter Only Characters</span>
+              
+              </span> 
+                       
+                   </div>
+                       
+                        </form>
+                       </li>
+                </ul>
+        </nav>
+     
+     
+        <div class="container">
+        <div class="col-sm-3">
+        <label>Search For:&nbsp&nbsp<label>
+        <label>
+    <input type="radio"  name="search" value="customers" checked="checked">
+    Customers
+  </label>
+  <label>
+    <input type="radio" name="search" value="drivers">
+    Drivers
+  </label></div>
+  <div class="col-sm-1></div>
+  <div class="col-sm-3">
+  <label>Search By:&nbsp&nbsp</label>
+   <label>
+    <input type="radio"  name="type" value="name" checked="checked">
+    Name
+  </label>
+  <label>
+    <input type="radio" name="type" value="city">
+    City
+  </label>
+ 
+        </div>
+        </div>
+     
+     
+     <div class="container" ng-controller="MyController as MyController">
+        <strong ng-show="(user.length==0)">No Customers Found</strong>
+        <table class="table" ng-show="user.length>0">
+         
+    <tbody>
+      <tr><td><strong>Matching Customers</strong></td></tr>
+      <tr dir-paginate="profile in user | itemsPerPage: pageSize" current-page="currentPage">
+      
+        <td><a type="button" class="btn btn-link" ng-click="viewCusProfile(profile.CustomerID)">{{profile.FirstName}}&nbsp;{{profile.LastName}}</a>
+        </td>
+      </tr>
+     <tr><td>
+     <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="/controller/dirPagination.tpl.html"></dir-pagination-controls>
+     </tr></td>
+    </tbody>
+  </table>
+  
+  </div>
+  
+  <div class="container" ng-controller="MyController as MyController">
+        <strong ng-show="(driver.length==0)">No Drivers Found</strong>
+        <table class="table" ng-show="driver.length>0">
+         
+    <tbody>
+      <tr><td><strong>Matching Drivers</strong></td></tr>
+      <tr dir-paginate="profile in driver | itemsPerPage: pageSize" current-page="currentPage" >
+      
+        <td><a type="button" class="btn btn-link" ng-click="viewDriProfile(profile.DriverID)">{{profile.FirstName}}&nbsp;{{profile.LastName}}</a>
+        </td>
+      </tr>
+    <tr><td>
+     <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="/controller/dirPagination.tpl.html"></dir-pagination-controls>
+     </tr></td>
+    </tbody>
+  </table>
+  
+         
+          
+  </div>
+  
+
+      
+
+
+
+  </div>

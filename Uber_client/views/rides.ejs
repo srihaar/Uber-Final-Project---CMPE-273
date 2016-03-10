@@ -1,0 +1,29 @@
+<div class="container-fluid" style="padding-left:120px">
+<br>
+ <center><label style="font-size:20px">My Trips</lable></center>
+ <br>
+ <table class="table">
+    <thead>
+      <tr>
+        <th>Pickup</th>
+        <th>Driver</th>
+         <th>Car</th>
+        <th>Fare</th>
+        <th>City</th>
+         <th>Payment Method</th>
+         <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="ride in rides">
+      <td>{{ ride.ridedate }} </td>
+        <td>{{ ride.drivername }} </td>
+        <td>UberX</td>
+        <td style="text-align:right">fare</td>
+        <td>{{ ride.dropofflocation }} </td>
+        <td>payment </td>
+        <td><button type="submit" ng-click="removeride(ride.rideid,'c')"><span class="glyphicon glyphicon-remove"</button>
+      </tr>
+    </tbody>
+  </table>
+</div>

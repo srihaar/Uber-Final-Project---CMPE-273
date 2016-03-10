@@ -1,0 +1,31 @@
+<div class="container-fluid" style="padding-left:120px">
+<div>
+<br>
+ <center><label style="font-size:20px">Ride Requests</lable></center>
+ <br>
+ <table ng-show="isrequest" class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Customer</th>
+         <th>Pickup</th>
+        <th>Dropoff</th>
+         <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="ride in requests">
+      <td>{{ ride.ridedate | date:'yyyy-MM-dd' }} </td>
+        <td>{{ ride.ridername }} </td>
+        <td>{{ ride.pickuplocation }}</td>
+        <td>{{ ride.dropofflocation }} </td>
+        <td><button ng-show="isStart" class="btn btn-success" type="submit" ng-click="startride(ride.rideid)"><span class="glyphicon glyphicon-play">StartRide</button>
+<button class="btn btn-danger" type="submit" ng-click="stopride(ride.rideid)"><span class="glyphicon glyphicon-stop">EndRide</button></td>
+      </tr>
+    </tbody>
+  </table>
+ </div> 
+  <div ng-show="!isrequest">
+  <center><label> No Rides have been requested for you at the moment! </label> </center>
+  </div>
+</div>

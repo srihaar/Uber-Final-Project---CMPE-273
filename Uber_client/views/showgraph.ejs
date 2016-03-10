@@ -1,0 +1,38 @@
+<div class="container" style="padding-left:120px">    
+   <nav class="navbar navbar-blue navbar-static-top" role="navigation">
+      <ul class="nav navbar-nav">
+        <li><h4 style="margin-top:20px;">Search for statistics of Customers or Drivers or Location</h4></li>
+        <li><a href="#"></a></li>                
+        <li><div class="input-group input-group-sm" style="max-width:250px;margin-top:16px;">
+	       	<input type="text" class="form-control" placeholder="Search" ng-model="graphSearchText" id="graphSearchText">
+	           <div class="input-group-btn">
+                <button class="btn btn-default" ng-click="graphSearch()"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+          </div>
+        </li>
+      </ul>
+   </nav>
+     
+   <div class="container">
+     <div>
+       <label>Search For:&nbsp&nbsp<label>
+       <label><input type="radio"  name="graphSearch" value="allrides" checked="checked">All Rides</label>
+  	  <label><input type="radio" name="graphSearch" value="customers">Customers</label>
+  	  <label><input type="radio" name="graphSearch" value="drivers">Drivers</label>
+  	  <label><input type="radio" name="graphSearch" value="location">Location</label>
+  	  <label><input type="radio" name="graphSearch" value="cancelled">Cancelled Rides</label>
+  	</div>
+  </div>
+</div>
+	<div style="padding-left:120px">
+	 <ng-map zoom="6" center="current" >
+	   <div ng-repeat = "path in paths">
+	   	<shape name="polyline" id="foo"
+		     path="{{path}}"
+		     stroke-color="#FF0000"
+		     stroke-opacity="1.0"
+		     stroke-weight="3">
+		   </shape> 
+		</div>
+	 </ng-map>
+    </div>
